@@ -21,11 +21,11 @@ Alternatively you can fix the version of this action by using
 
 | Input | Description | Default |
 | :-: | :-: | :-: |
-| `version` | mmCEsim Version (SHA/Tag/Branch) | `master` |
-| `command` | mmCEsim Command (Only Support `exp` Now) | `exp` |
-| `source` | mmCEsim Configuration Source File (`*.sim`) | (**required**) |
-| `output` | Output (Generated) File name | `exported.cpp` |
-| `options` | mmCEsim Options | (Optional) |
+| [`version`](#version) | mmCEsim Version (SHA/Tag/Branch) | `master` |
+| [`command`](#command) | mmCEsim Command (Only Support `exp` Now) | `exp` |
+| [`source`](#source) | mmCEsim Configuration Source File (`*.sim`) | (**required**) |
+| [`output`](#output) | Output (Generated) File name | `exported.cpp` |
+| [`options`](#options) | mmCEsim Options | (optional) |
 
 ### `version`
 Set the mmCEsim CLI version. It can be either **SHA**, **Tag** or **Branch**.
@@ -61,7 +61,7 @@ This value is optional.
 
 | Output | Description |
 | :-: | :-: |
-| `src` | Generated Source File |
+| [`src`](#src) | Generated Source File |
 
 ### `src`
 The generated source file name.
@@ -76,7 +76,10 @@ and the output file name is set to `export_file_name.cpp`.
 The version of [mmCEsim](https://github.com/mmcesim/mmcesim) is set to the `master` branch.
 Additional CLI option `--no-error-compile` is passed on.
 
-The 
+The generated file is viewed in the `Check Contents` step,
+with the output file name as `${{ steps.run.outputs.src }}`.
+The file is then uploaded to the artifact with action `actions/upload-artifact`.
+
 ```yml
 on: [push]
 
