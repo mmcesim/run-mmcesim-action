@@ -1,3 +1,9 @@
+# Run mmCEsim Action
+# by Wuqiong Zhao (Teddy van Jerry)
+#
+# Source:
+# https://github.com/mmcesim/run-mmcesim-action
+
 FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive

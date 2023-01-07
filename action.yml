@@ -12,6 +12,10 @@ inputs:
   source:
     description: mmCEsim Configuration Source File (*.sim)
     required: true
+  output:
+    description: Output File name
+    required: true
+    default: exported.cpp
   options:
     description: mmCEsim Options
     required: false
@@ -25,4 +29,5 @@ runs:
     - $${{ inputs.version }}
     - $${{ inputs.command }}
     - $${{ inputs.source }}
+    - $${{ inputs.output }}
     - $${{ inputs.options }}
