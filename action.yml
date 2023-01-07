@@ -26,8 +26,8 @@ runs:
   using: docker
   image: 'Dockerfile'
   args:
-    - $${{ inputs.version }}
-    - $${{ inputs.command }}
-    - $${{ inputs.source }}
-    - $${{ inputs.output }}
-    - $${{ inputs.options }}
+    - ${{ inputs.version }}
+    - ${{ inputs.command }}
+    - ${{ inputs.source }}
+    - ${{ inputs.output }}
+    - ${{ inputs.options }}
