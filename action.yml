@@ -13,7 +13,7 @@ inputs:
     description: mmCEsim Configuration Source File (*.sim)
     required: true
   output:
-    description: Output File name
+    description: Output (Generated) File name
     required: true
     default: exported.cpp
   options:
@@ -21,7 +21,7 @@ inputs:
     required: false
 outputs:
   src:
-    description: Generate source file
+    description: Generated Source File
 runs:
   using: docker
   image: 'Dockerfile'
@@ -31,3 +31,6 @@ runs:
     - ${{ inputs.source }}
     - ${{ inputs.output }}
     - ${{ inputs.options }}
+branding:
+  color: purple
+  icon: fast-forward
