@@ -21,7 +21,7 @@ make
 cd ..
 
 # Run mmCEsim
-./mmcesim/bin/mmcesim exp "$3" -o"$4" $5
+./mmcesim/bin/mmcesim exp "$3" -o"$4" $5 || exit 1
 
 generated_src=$4
 echo "Generated source file: $generated_src"

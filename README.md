@@ -10,12 +10,15 @@ GitHub Action for Running mmCEsim CLI and Generating Report
 
 To use this action, you can simply use:
 ```yml
-- uses: mmcesim/run-mmcesim-action
+- name: Run mmCEsim
+  uses: mmcesim/run-mmcesim-action
   with:
     source: input.sim # the mmCEsim configuration file
 ```
 Alternatively you can fix the version of this action by using
-`mmcesim/run-mmcesim-action@v0.0.1`.
+`mmcesim/run-mmcesim-action@v0.0.2`.
+
+The action will return false if the CLI running fails.
 
 ## Inputs
 
@@ -81,6 +84,8 @@ with the output file name as `${{ steps.run.outputs.src }}`.
 The file is then uploaded to the artifact with action `actions/upload-artifact`.
 
 ```yml
+name: Run mmCEsim
+
 on: [push]
 
 jobs:
@@ -91,7 +96,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run mmCEsim Action
-        uses: mmcesim/run-mmcesim-action@v0.0.1
+        uses: mmcesim/run-mmcesim-action@v0.0.2
         id: run
         with:
           version: master
