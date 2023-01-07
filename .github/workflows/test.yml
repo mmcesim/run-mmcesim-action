@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  test_master:
+    runs-on: ubuntu-latest
+    name: Test Master
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run mmCEsim Action
+        uses: ./
+        id: run
+        with:
+          source: test/single_RIS.sim
+      - name: Check Contents
+        run: cat "${{ steps.run.outputs.src }}"
