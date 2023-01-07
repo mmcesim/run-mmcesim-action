@@ -3,7 +3,7 @@ on: [push]
 jobs:
   test_master:
     runs-on: ubuntu-latest
-    name: Test Action
+    name: Test Master
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -14,3 +14,52 @@ jobs:
           source: test/single_RIS.sim
       - name: Check Contents
         run: cat "${{ steps.run.outputs.src }}"
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Test Master"
+          path: "${{ steps.run.outputs.src }}"
+
+  test_SHA:
+    runs-on: ubuntu-latest
+    name: Test SHA
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run mmCEsim Action
+        uses: ./
+        id: run
+        with:
+          version: 2000577b244fd7f1ef1e11bb3b00e1a35156c051
+          source: test/MIMO
+          output: SHA_exported.cpp
+      - name: Check Contents
+        run: cat "${{ steps.run.outputs.src }}"
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Test SHA"
+          path: "${{ steps.run.outputs.src }}"
+
+  test_Tag:
+    runs-on: ubuntu-latest
+    name: Test Tag
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run mmCEsim Action
+        uses: ./
+        id: run
+        with:
+          version: v0.1.0
+          command: exp
+          source: test/MIMO
+          output: SHA_exported.cpp
+          options: --no-error-compile
+      - name: Check Contents
+        run: cat "${{ steps.run.outputs.src }}"
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Test Tag"
+          path: "${{ steps.run.outputs.src }}"
