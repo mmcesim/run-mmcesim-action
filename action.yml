@@ -1,0 +1,28 @@
+name: 'Run mmCEsim'
+description: 'Run mmCEsim CLI and Generate Report'
+inputs:
+  version:
+    description: mmCEsim Version (SHA/Tag/Branch)
+    required: true
+    default: master # the default branch
+  command:
+    description: mmCEsim Command (Only Support 'exp' Now)
+    required: true
+    default: exp
+  source:
+    description: mmCEsim Configuration Source File (*.sim)
+    required: true
+  options:
+    description: mmCEsim Options
+    required: false
+outputs:
+  src:
+    description: Generate source file
+runs:
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - $${{ inputs.version }}
+    - $${{ inputs.command }}
+    - $${{ inputs.source }}
+    - $${{ inputs.options }}
