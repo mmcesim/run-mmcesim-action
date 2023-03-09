@@ -16,7 +16,7 @@ To use this action, you can simply use:
     source: input.sim # the mmCEsim configuration file
 ```
 Alternatively you can fix the version of this action by using
-`mmcesim/run-mmcesim-action@v0.0.2`.
+`mmcesim/run-mmcesim-action@v0.0.3`.
 
 The action will return false if the CLI running fails.
 

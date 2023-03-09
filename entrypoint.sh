@@ -13,7 +13,7 @@ git clone https://github.com/mmcesim/mmcesim.git --recurse-submodules
 
 # checkout to a specific version
 cd mmcesim
-git checkout $1
+git checkout $1 --recurse-submodules
 
 # build mmCEsim
 cmake .
