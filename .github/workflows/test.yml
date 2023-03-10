@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          version: log-file-support
       - name: Run mmCEsim Action
         uses: ./
         id: run
