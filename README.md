@@ -16,7 +16,7 @@ To use this action, you can simply use:
     source: input.sim # the mmCEsim configuration file
 ```
 Alternatively you can fix the version of this action by using
-`mmcesim/run-mmcesim-action@v0.0.4`.
+`mmcesim/run-mmcesim-action@v0.0.5`.
 
 The action will return false if the CLI running fails.
 
@@ -96,7 +96,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run mmCEsim Action
-        uses: mmcesim/run-mmcesim-action@v0.0.4
+        uses: mmcesim/run-mmcesim-action@v0.0.5
         id: run
         with:
           version: master

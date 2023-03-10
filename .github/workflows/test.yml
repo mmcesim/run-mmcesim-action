@@ -14,7 +14,6 @@ jobs:
         id: run
         with:
           source: test/single_RIS.sim
-          version: log-file-support
       - name: Check Contents
         run: cat "${{ steps.run.outputs.src }}"
       - name: Upload
